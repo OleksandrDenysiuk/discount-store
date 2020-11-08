@@ -1,5 +1,6 @@
 package com.example.discount_store;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +44,15 @@ public class SignUp extends AppCompatActivity {
                 String phoneNo = regPhoneNo.getEditText().getText().toString();
                 String password = regPassword.getEditText().getText().toString();
                 User helperClass = new User(name, username, email, phoneNo, password);
-                reference.child(phoneNo).setValue(helperClass);
+                reference.child(username).setValue(helperClass);
+            }
+        });
+
+        regToLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
