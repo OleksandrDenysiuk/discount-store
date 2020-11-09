@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.discount_store">
 
     <application
@@ -19,9 +18,11 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"></activity>
         <activity android:name=".SignUp"></activity>
-        <activity android:name=".UserProfileActivity"></activity>
+        <activity android:name=".UserProfileActivity"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar"
+            android:windowSoftInputMode="stateHidden"></activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
