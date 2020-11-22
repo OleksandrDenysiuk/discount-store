@@ -3,7 +3,9 @@ package com.example.discount_store;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,6 +15,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class UserProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -22,11 +26,16 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
     NavigationView navigationView;
     Toolbar toolbar;
 
+    String _USERNAME, _NAME, _EMAIL, _PHONENO, _PASSWORD;
+
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+        reference = FirebaseDatabase.getInstance().getReference("users");
 
         //Hooks
         fullName = findViewById(R.id.full_name_profile);
@@ -38,6 +47,7 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
+
         //ShowAllData
         showAllUserData();
 
@@ -56,18 +66,70 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
 
     private void showAllUserData() {
         Intent intent = getIntent();
-        String user_username = intent.getStringExtra("username");
-        String user_name = intent.getStringExtra("name");
-        String user_email = intent.getStringExtra("email");
-        String user_phoneNo = intent.getStringExtra("phoneNo");
-        String user_password = intent.getStringExtra("password");
+        _USERNAME = intent.getStringExtra("username");
+        _NAME = intent.getStringExtra("name");
+        _EMAIL = intent.getStringExtra("email");
+        _PHONENO = intent.getStringExtra("phoneNo");
+        _PASSWORD = intent.getStringExtra("password");
 
-        fullNameLabel.setText(user_name);
-        usernameLabel.setText(user_username);
-        fullName.getEditText().setText(user_name);
-        email.getEditText().setText(user_email);
-        phoneNo.getEditText().setText(user_phoneNo);
-        password.getEditText().setText(user_password);
+        fullNameLabel.setText(_NAME);
+        usernameLabel.setText(_USERNAME);
+        fullName.getEditText().setText(_NAME);
+        email.getEditText().setText(_EMAIL);
+        phoneNo.getEditText().setText(_PHONENO);
+        password.getEditText().setText(_PASSWORD);
+    }
+
+    public void update(View view) {
+        if(isNameChanged() || isPasswordChanged() || isPhoneNOChanged() || isEmailChanged()) {
+            Toast.makeText(this, "Data has been updated", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Data has not been updated", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private boolean isPhoneNOChanged(){
+        if(!_PHONENO.equals(phoneNo.getEditText().getText().toString()))
+        {
+            reference.child(_USERNAME).child("phoneNo").setValue(phoneNo.getEditText().getText().toString());
+            _PHONENO = phoneNo.getEditText().getText().toString();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private boolean isEmailChanged(){
+        if(!_EMAIL.equals(email.getEditText().getText().toString()))
+        {
+            reference.child(_USERNAME).child("email").setValue(email.getEditText().getText().toString());
+            _EMAIL = email.getEditText().getText().toString();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private boolean isPasswordChanged(){
+        if(!_PASSWORD.equals(password.getEditText().getText().toString()))
+        {
+            reference.child(_USERNAME).child("password").setValue(password.getEditText().getText().toString());
+            _PASSWORD = password.getEditText().getText().toString();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    private boolean isNameChanged(){
+        if(!_NAME.equals(fullName.getEditText().getText().toString())){
+            reference.child(_USERNAME).child("name").setValue(fullName.getEditText().getText().toString());
+            _NAME = fullName.getEditText().getText().toString();
+            fullNameLabel.setText(_NAME);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
