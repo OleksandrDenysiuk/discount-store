@@ -146,6 +146,13 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
         }
     }
 
+    public void delete(View view) {
+        reference.child(_USERNAME).removeValue();
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         return false;

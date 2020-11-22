@@ -234,6 +234,14 @@
                     android:fontFamily="@font/bungee"
                     android:onClick="update"
                     android:text="UPDATE" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="#fece2f"
+                    android:fontFamily="@font/bungee"
+                    android:onClick="delete"
+                    android:text="DELETE" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
