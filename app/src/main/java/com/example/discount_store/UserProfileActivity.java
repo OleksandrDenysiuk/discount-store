@@ -81,8 +81,22 @@ public class UserProfileActivity extends AppCompatActivity implements Navigation
     }
 
     public void update(View view) {
-        if(isNameChanged() || isPasswordChanged() || isPhoneNOChanged() || isEmailChanged()) {
-            Toast.makeText(this, "Data has been updated", Toast.LENGTH_LONG).show();
+        String text = "";
+        if(isNameChanged()) {
+            text += "name ";
+        }
+        if(isPasswordChanged() ) {
+            text += "password ";
+        }
+        if (isPhoneNOChanged()) {
+            text += "phone number ";
+        }
+        if (isEmailChanged()) {
+            text += "email ";
+        }
+
+        if(!text.equals("")) {
+            Toast.makeText(this, text + " has been updated", Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "Data has not been updated", Toast.LENGTH_LONG).show();
         }
