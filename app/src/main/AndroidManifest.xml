@@ -10,19 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Discountstore"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.shop.ShopDashBoardActivity"></activity>
+        <activity android:name=".activity.shop.ProductActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.MaterialComponents.NoActionBar"></activity>
-        <activity android:name=".SignUp"></activity>
-        <activity android:name=".UserProfileActivity"
+            android:theme="@style/Theme.MaterialComponents.NoActionBar" />
+        <activity android:name=".SignUp" />
+        <activity
+            android:name=".activity.user.UserProfileActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
