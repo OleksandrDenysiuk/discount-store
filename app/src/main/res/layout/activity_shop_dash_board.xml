@@ -21,5 +21,6 @@
         android:layout_marginTop="15dp"
         android:background="#fece2f"
         android:fontFamily="@font/bungee"
+        android:onClick="createDiscount"
         android:text="Create new discount" />
 </LinearLayout>

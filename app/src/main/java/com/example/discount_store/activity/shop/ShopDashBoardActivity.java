@@ -21,4 +21,9 @@ public class ShopDashBoardActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), ProductActivity.class);
         startActivity(intent);
     }
+
+    public void createDiscount(View view) {
+        Intent intent = new Intent(getApplicationContext(), DiscountActivity.class);
+        startActivity(intent);
+    }
 }
