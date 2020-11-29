@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Discountstore"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.shop.ShopDashBoardActivity"></activity>
+        <activity android:name=".activity.shop.DiscountActivity"></activity>
+        <activity android:name=".activity.shop.ShopDashBoardActivity" />
         <activity android:name=".activity.shop.ProductActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
