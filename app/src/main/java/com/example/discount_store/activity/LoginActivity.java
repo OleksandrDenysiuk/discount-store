@@ -1,4 +1,4 @@
-package com.example.discount_store;
+package com.example.discount_store.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,9 @@ import android.widget.RadioGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.discount_store.R;
 import com.example.discount_store.activity.shop.ShopDashBoardActivity;
-import com.example.discount_store.activity.user.UserProfileActivity;
+import com.example.discount_store.activity.user.DiscountListActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -82,12 +83,12 @@ public class LoginActivity extends AppCompatActivity {
                     if (passwordFromDB.equals(userEnteredPassword)) {
                         username.setError(null);
                         username.setErrorEnabled(false);
-                        Intent intent = new Intent(getApplicationContext(), UserProfileActivity.class);
-                        intent.putExtra("name", snapshot.child(userEnteredUsername).child("name").getValue(String.class));
+                        Intent intent = new Intent(getApplicationContext(), DiscountListActivity.class);
+                        /*intent.putExtra("name", snapshot.child(userEnteredUsername).child("name").getValue(String.class));
                         intent.putExtra("username", snapshot.child(userEnteredUsername).child("username").getValue(String.class));
                         intent.putExtra("email", snapshot.child(userEnteredUsername).child("phoneNo").getValue(String.class));
                         intent.putExtra("phoneNo", snapshot.child(userEnteredUsername).child("phoneNo").getValue(String.class));
-                        intent.putExtra("password", passwordFromDB);
+                        intent.putExtra("password", passwordFromDB);*/
                         startActivity(intent);
                     } else {
                         //progressBar.setVisibility(View.GONE);

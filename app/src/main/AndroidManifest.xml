@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Discountstore"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.shop.DiscountActivity"></activity>
+        <activity android:name=".activity.user.DiscountDetailsActivity"></activity>
+        <activity android:name=".activity.user.DiscountListActivity" />
+        <activity android:name=".activity.shop.DiscountActivity" />
         <activity android:name=".activity.shop.ShopDashBoardActivity" />
         <activity android:name=".activity.shop.ProductActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,9 +23,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar" />
-        <activity android:name=".SignUp" />
+        <activity android:name=".activity.SignUp" />
         <activity
             android:name=".activity.user.UserProfileActivity"
             android:theme="@style/Theme.MaterialComponents.NoActionBar"

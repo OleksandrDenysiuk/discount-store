@@ -21,6 +21,26 @@
         android:layout_marginTop="15dp"
         android:background="#fece2f"
         android:fontFamily="@font/bungee"
+        android:onClick="bla"
+        android:text="Product management" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#fece2f"
+        android:fontFamily="@font/bungee"
         android:onClick="createDiscount"
         android:text="Create new discount" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#fece2f"
+        android:fontFamily="@font/bungee"
+        android:onClick="bla"
+        android:text="Discount management" />
+
+
 </LinearLayout>

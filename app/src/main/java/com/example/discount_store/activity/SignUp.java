@@ -1,4 +1,4 @@
-package com.example.discount_store;
+package com.example.discount_store.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.discount_store.R;
 import com.example.discount_store.model.User;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
